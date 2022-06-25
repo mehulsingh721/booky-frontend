@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; // 1rem = 10px;
+}
+
+body {
+    --color-body: #ffffff;
+    --color-body-dark: #fafafa;
+
+    --color-secondary: #cccccc;
+    --color-secondary-dark: #b2b2b2;
+
+    --color-text-light: rgba(26,26,26,0.6);
+    --color-text: rgba(26,26,26,1);
+
+    --color-tertiary: rgba(0,105,255);
+    --color-tertiary-light: rgba(0,105,255,0.065);
+    --font-body: 'Nunito Sans', sans-serif;
+
+    /* Total borders or paddings are not added to total height of an element */
+    box-sizing: border-box;
+    // background-color: $color_body_dark;
+    font-family: var(--font-body);
+    a{
+        text-decoration: none;
+        font: inherit;
+    }
+}
