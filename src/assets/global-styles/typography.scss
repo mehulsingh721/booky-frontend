@@ -8,14 +8,14 @@
 
 .link{
     font-size: 1.6rem;
-    color: var( color_text_light;
+    color: var(--color-text-light);
     font-weight: 400;
     &:hover{
-        color: $color_text_light;
+        color: var(--color-text);
     }
-    &-active{
+    a.router-link-exact-active{
         font-size: 1.6rem;
-        color: $color_text;
+        color: var(--color-text);
         font-weight: 700;
     }
 }

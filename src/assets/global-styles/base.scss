@@ -14,6 +14,8 @@ body {
     --color-body: #ffffff;
     --color-body-dark: #fafafa;
 
+    --color-border: #f2f2f2;
+
     --color-secondary: #cccccc;
     --color-secondary-dark: #b2b2b2;
 
@@ -26,10 +28,11 @@ body {
 
     /* Total borders or paddings are not added to total height of an element */
     box-sizing: border-box;
-    // background-color: $color_body_dark;
+    background-color: var(--color-body-dark);
     font-family: var(--font-body);
     a{
         text-decoration: none;
         font: inherit;
+        color: inherit;
     }
 }
