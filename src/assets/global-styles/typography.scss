@@ -6,6 +6,12 @@
     color: var(--color-text);
 }
 
+.copy__para--medium{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
 .link{
     font-size: 1.6rem;
     color: var(--color-text-light);
@@ -13,9 +19,14 @@
     &:hover{
         color: var(--color-text);
     }
-    a.router-link-exact-active{
+    a.router-link-active{
         font-size: 1.6rem;
         color: var(--color-text);
         font-weight: 700;
     }
+}
+.active{
+        font-size: 1.6rem;
+        color: var(--color-text);
+        font-weight: 700;
 }

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
-import EventTypesView from "../views/EventTypesView.vue"
+import HomeView from "../views/Home/HomeView.vue"
+import EventTypesView from "../views/Home/EventTypesView.vue"
+import ScheduledEventsView from "../views/Home/ScheduledEventsView.vue"
 import AvailabilityView from "../views/AvailabilityView.vue"
 import IntegrationsView from "../views/IntegrationsView.vue"
 
@@ -8,8 +10,18 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "event_types",
-      component: EventTypesView
+      name: "home",
+      component: HomeView,
+      children: [
+        {
+          path: "",
+          component: EventTypesView
+        },
+        {
+          path: "scheduled_events",
+          component: ScheduledEventsView
+        }
+      ]
     },
     {
       path: "/availability",
