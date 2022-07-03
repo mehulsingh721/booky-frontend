@@ -15,11 +15,20 @@
     border: 1px solid var(--color-tertiary);
     color: var(--color-body);
     font-weight: 700;
+    position: relative;
     @include button;
     &-sec{
         @include button;
         background-color: transparent;
         border: 1px solid var(--color-tertiary);
         color: var(--color-tertiary);
+    }
+    &-tertiary{
+        color: var(--color-tertiary);
+        background-color: transparent;
+        border: none;
+        font-size: 1.4rem;
+        @include button;
+        padding: 0;
     }
 }

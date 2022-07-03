@@ -1,5 +1,5 @@
 <script>
-import { RouterLink } from "vue-router";
+import {RouterLink} from "vue-router";
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import { RouterLink } from "vue-router";
 
       <button class="btn-sec">+ New Event Type</button>
     </div>
-     
+
     <div class="event-types__events">
       <div class="event-types__events--card">
         <div class="row-1">
@@ -31,10 +31,10 @@ import { RouterLink } from "vue-router";
         <div class="row-2">
           <h1 class="heading-1">30 Minute Meeting</h1>
           <p class="copy__para--medium">30 mins, One-on-One</p>
-          <a href="https://www.google.com" target="_blank">View booking page</a>
+          <a href="https://www.google.com" class="btn-tertiary" target="_blank">View booking page</a>
         </div>
         <div class="row-3">
-          <div class="copy-link">Copy Link</div>
+          <button class="btn-tertiary">Copy Link</button>
           <button class="btn-sec">Share</button>
         </div>
       </div>
@@ -43,30 +43,37 @@ import { RouterLink } from "vue-router";
 </template>
 
 <style scoped lang="scss">
-.event-types{
+.event-types {
   padding: 0 2rem;
   max-width: 55%;
   margin: auto;
   width: 100%;
   display: grid;
   grid-gap: 2rem;
-  &__search{
+
+  &__search {
     width: 100%;
-    input{
+
+    input {
       border: none;
       font-family: var(--font-body);
       font-size: 1.6rem;
       background-color: transparent;
     }
   }
-  &__user{
+
+  &__user {
     display: flex;
     justify-content: space-between;
-    &--info{
+    border-bottom: 1px solid var(--color-secondary);
+    padding-bottom: 2rem;
+
+    &--info {
       display: flex;
       column-gap: 1rem;
       align-items: center;
-      .badge{
+
+      .badge {
         font-size: 1.7rem;
         background-color: var(--color-secondary);
         height: 4rem;
@@ -76,11 +83,53 @@ import { RouterLink } from "vue-router";
         justify-content: center;
         border-radius: 50%;
       }
-      .name, .link{
+
+      .name,
+      .link {
         font-size: 1.4rem;
       }
-      .link{
+
+      .link {
         color: var(--color-tertiary);
+      }
+    }
+  }
+
+  &__events {
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-gap: 2rem;
+
+    &--card {
+      background-color: var(--color-body);
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .1);
+      border-top: 4px solid #8247f5;
+
+      &:hover {
+        top: -2px;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .15);
+      }
+
+      .row-1 {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+
+      .row-2 {
+        padding: 1rem 2rem;
+      }
+
+      .row-3 {
+        border-top: 1px solid var(--color-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
       }
     }
   }
