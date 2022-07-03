@@ -1,12 +1,26 @@
 <script>
+import {useRouter} from 'vue-router';
+
 export default {
   name: "CreateContextMenu",
+  setup(){
+    const router = useRouter();
+    const toNew = () => {
+      router.push({
+        name: "newEvents",
+        query: {
+          ...router.query
+        }
+      })
+    }
+    return { toNew };
+  }
 }
 </script>
 
 <template>
   <div class="menu">
-    <div class="menu__item">
+    <div @click="toNew" class="menu__item">
       <font-awesome-icon icon="fa-solid fa-note-sticky" />
       <div>
         <h3>Event Type</h3>

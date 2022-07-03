@@ -1,41 +1,50 @@
 <script>
 import {RouterLink} from "vue-router";
+import HomeBar from "../../components/HomeBar.vue"
+export default {
+  components: {
+    HomeBar,
+  }
+}
 </script>
 
 <template>
-  <div class="event-types">
-    <div class="event-types__search">
-      <input type="search" placeholder="Search">
-    </div>
-
-    <div class="event-types__user">
-      <div class="event-types__user--info">
-        <div class="badge">
-          <p>J</p>
-        </div>
-        <div>
-          <p class="name">john doe</p>
-          <a class="link" href="calendly.com/hateyoh588">calendly.com/hateyoh588</a>
-        </div>
+  <HomeBar/>
+  <div class="home-content">
+    <div class="event-types">
+      <div class="event-types__search">
+        <input type="search" placeholder="Search">
       </div>
 
-      <button class="btn-sec">+ New Event Type</button>
-    </div>
+      <div class="event-types__user">
+        <div class="event-types__user--info">
+          <div class="badge">
+            <p>J</p>
+          </div>
+          <div>
+            <p class="name">john doe</p>
+            <a class="link" href="calendly.com/hateyoh588">calendly.com/hateyoh588</a>
+          </div>
+        </div>
 
-    <div class="event-types__events">
-      <div class="event-types__events--card">
-        <div class="row-1">
-          <input type="checkbox">
-          <font-awesome-icon icon="fa-solid fa-gear" />
-        </div>
-        <div class="row-2">
-          <h1 class="heading-1">30 Minute Meeting</h1>
-          <p class="copy__para--medium">30 mins, One-on-One</p>
-          <a href="https://www.google.com" class="btn-tertiary" target="_blank">View booking page</a>
-        </div>
-        <div class="row-3">
-          <button class="btn-tertiary">Copy Link</button>
-          <button class="btn-sec">Share</button>
+        <button class="btn-sec">+ New Event Type</button>
+      </div>
+
+      <div class="event-types__events">
+        <div class="event-types__events--card">
+          <div class="row-1">
+            <input type="checkbox">
+            <font-awesome-icon icon="fa-solid fa-gear" />
+          </div>
+          <div class="row-2">
+            <h1 class="heading-1">30 Minute Meeting</h1>
+            <p class="copy__para--medium">30 mins, One-on-One</p>
+            <a href="https://www.google.com" class="btn-tertiary" target="_blank">View booking page</a>
+          </div>
+          <div class="row-3">
+            <button class="btn-tertiary">Copy Link</button>
+            <button class="btn-sec">Share</button>
+          </div>
         </div>
       </div>
     </div>
