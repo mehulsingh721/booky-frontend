@@ -1,7 +1,7 @@
 <script>
 import ToggleSwitch from "../../components/ToggleSwitch.vue";
 import CustomQuill from "../../components/CustomQuill.vue";
-import {ref} from "vue";
+import { ref } from "vue";
 export default {
   name: "SoloEventView",
   components: {
@@ -13,7 +13,7 @@ export default {
     const toggleEventStatus = () => {
       eventStatus.value = !eventStatus.value
     }
-    return {eventStatus, toggleEventStatus}
+    return { eventStatus, toggleEventStatus }
   }
 }
 </script>
@@ -51,13 +51,29 @@ export default {
         <div class="form__input">
           <label for="description">Description *</label>
           <div id="description">
-            <CustomQuill />
+            <CustomQuill/>
           </div>
         </div>
         <div class="form__input">
           <label for="link">Event Link *</label>
           <p class="link">calendly.com/username/</p>
           <input type="text" id="link">
+        </div>
+
+        <div class="form__input">
+          <label for="color">Event color *</label>
+          <div class="form__input--colors">
+            <button class="color" style="background-color: #ff4f00"></button>
+            <button class="color" style="background-color: #ff758e"></button>
+            <button class="color" style="background-color: #e55cff"></button>
+            <button class="color" style="background-color: #8247f5"></button>
+            <button class="color" style="background-color: #0099ff"></button>
+            <button class="color" style="background-color: #0ae8f0"></button>
+            <button class="color" style="background-color: #17e885"></button>
+            <button class="color" style="background-color: #ccf000"></button>
+            <button class="color" style="background-color: #f8e436"></button>
+            <button class="color" style="background-color: #ffa600"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -122,6 +138,15 @@ export default {
           font-size: 1.6rem;
           line-height: 1.5;
           overflow-wrap: normal;
+        }
+        &--colors{
+          display: flex;
+          column-gap: 1rem;
+          .color{
+            padding: 2rem;
+            border-radius: 50%;
+            border: none;
+          }
         }
       }
     }
