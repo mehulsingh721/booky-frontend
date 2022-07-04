@@ -31,5 +31,13 @@
         font-size: 1.4rem;
         @include button;
         padding: 0;
+        &--plain{
+            color: var(--color-text);
+            background-color: transparent;
+            border: none;
+            font-size: 1.4rem;
+            @include button;
+            padding: 0;
+        }
     }
 }

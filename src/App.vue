@@ -11,6 +11,13 @@ import AppHeader from "./components/AppHeader.vue"
 </template>
 
 <style lang="scss">
-main{
+.ql-container.ql-snow {
+  border: none !important;
+  height: 10rem;
+}
+.ql-container{
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 1.4rem;
+  color: var(--color-text);
 }
 </style>
