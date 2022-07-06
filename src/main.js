@@ -15,7 +15,8 @@ import {
   faGear,
   faNoteSticky,
   faTicket,
-  faUser
+  faUser,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons"
 
 import "@/assets/global-styles/typography.scss"
@@ -23,7 +24,7 @@ import "@/assets/global-styles/base.scss"
 import "@/assets/global-styles/btn.scss"
 import { QuillEditor } from "@vueup/vue-quill"
 /* add icons to the library */
-library.add(faGear, faNoteSticky, faTicket, faUser)
+library.add(faGear, faNoteSticky, faTicket, faUser, faCheck)
 
 const app = createApp(App).component("font-awesome-icon", FontAwesomeIcon)
 

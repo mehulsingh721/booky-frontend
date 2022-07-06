@@ -1,7 +1,7 @@
 <script>
 import ToggleSwitch from "../../components/ToggleSwitch.vue";
 import CustomQuill from "../../components/CustomQuill.vue";
-import { ref } from "vue";
+import {ref} from "vue";
 export default {
   name: "SoloEventView",
   components: {
@@ -15,7 +15,7 @@ export default {
     const description = ref("");
     const eventLink = ref("");
     const eventType = ref("");
-    const eventColor = ref("");
+    const eventColor = ref("#8247f5");
     const inviteeQuestions = ref("");
 
     const toggleEventStatus = () => {
@@ -81,16 +81,96 @@ export default {
         <div class="form__input">
           <label for="color">Event color *</label>
           <div class="form__input--colors">
-            <button class="color" style="background-color: #ff4f00"></button>
-            <button class="color" style="background-color: #ff758e"></button>
-            <button class="color" style="background-color: #e55cff"></button>
-            <button class="color" style="background-color: #8247f5"></button>
-            <button class="color" style="background-color: #0099ff"></button>
-            <button class="color" style="background-color: #0ae8f0"></button>
-            <button class="color" style="background-color: #17e885"></button>
-            <button class="color" style="background-color: #ccf000"></button>
-            <button class="color" style="background-color: #f8e436"></button>
-            <button class="color" style="background-color: #ffa600"></button>
+            <button 
+              class="color"
+              style="background-color: #ff4f00"
+              @click="() => (eventColor = '#ff4f00')"
+            >
+              <span v-if="eventColor === '#ff4f00'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #ff758e"
+              @click="() => (eventColor = '#ff758e')"
+            >
+              <span v-if="eventColor === '#ff758e'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #e55cff"
+              @click="() => (eventColor = '#e55cff')"
+            >
+              <span v-if="eventColor === '#e55cff'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #8247f5"
+              @click="() => (eventColor = '#8247f5')"
+              >
+              <span v-if="eventColor === '#8247f5'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #0099ff"
+              @click="() => (eventColor = '#0099ff')"
+            >
+              <span v-if="eventColor === '#0099ff'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #0ae8f0"
+              @click="() => (eventColor = '#0ae8f0')"
+            >
+              <span v-if="eventColor === '#0ae8f0'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button 
+              class="color" 
+              style="background-color: #17e885"
+              @click="() => (eventColor = '#17e885')"
+            >
+              <span v-if="eventColor === '#17e885'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #ccf000"
+              @click="() => (eventColor = '#ccf000')"
+              >
+              <span v-if="eventColor == '#ccf000'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #f8e436"
+              @click="() => (eventColor = '#f8e436')"
+            >
+              <span v-if="eventColor === '#f8e436'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
+            <button
+              class="color"
+              style="background-color: #ffa600"
+              @click="() => (eventColor = '#ffa600')"
+              >
+              <span v-if="eventColor === '#ffa600'">
+                <font-awesome-icon icon="fa-solid fa-check" />
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -165,9 +245,19 @@ export default {
           column-gap: 1rem;
 
           .color {
-            padding: 2rem;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            padding: 1rem;
             border-radius: 50%;
             border: none;
+            cursor: pointer;
+            span{
+              color: white;
+              font-size: 2.0rem;
+            }
           }
         }
       }
