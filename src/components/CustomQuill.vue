@@ -29,13 +29,12 @@ export default {
       <button class="ql-link"></button>
     </div>
   </div>
-  <QuillEditor toolbar="#custom-toolbar" theme="snow"/>
+  <QuillEditor placeholder="Write a summary and any details your invitee should know about the event." toolbar="#custom-toolbar" theme="snow"/>
 </template>
 
 <style scoped>
 #custom-toolbar{
   border-bottom: none;
-  height: max-content;
 }
 .ql-toolbar.ql-snow{
   border: none;

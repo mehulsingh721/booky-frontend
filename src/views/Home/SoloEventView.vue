@@ -10,10 +10,28 @@ export default {
   },
   setup() {
     const eventStatus = ref(false);
+    const eventName = ref("");
+    const meetLocation = ref("");
+    const description = ref("");
+    const eventLink = ref("");
+    const eventType = ref("");
+    const eventColor = ref("");
+    const inviteeQuestions = ref("");
+
     const toggleEventStatus = () => {
       eventStatus.value = !eventStatus.value
     }
-    return { eventStatus, toggleEventStatus }
+    return {
+      eventStatus,
+      toggleEventStatus,
+      eventName,
+      meetLocation,
+      description,
+      eventLink,
+      eventType,
+      eventColor,
+      inviteeQuestions
+    }
   }
 }
 </script>
@@ -51,7 +69,7 @@ export default {
         <div class="form__input">
           <label for="description">Description *</label>
           <div id="description">
-            <CustomQuill/>
+            <CustomQuill />
           </div>
         </div>
         <div class="form__input">
@@ -126,12 +144,14 @@ export default {
           font-weight: 700;
         }
 
-        input, #description {
+        input,
+        #description {
           border-radius: 6px;
           border: 1px solid var(--color-secondary);
           background-color: transparent;
         }
-        input{
+
+        input {
           width: 100%;
           padding: 1rem 1.4rem;
           color: var(--color-text);
@@ -139,10 +159,12 @@ export default {
           line-height: 1.5;
           overflow-wrap: normal;
         }
-        &--colors{
+
+        &--colors {
           display: flex;
           column-gap: 1rem;
-          .color{
+
+          .color {
             padding: 2rem;
             border-radius: 50%;
             border: none;
@@ -151,7 +173,8 @@ export default {
       }
     }
   }
-  .row-3{
+
+  .row-3 {
     display: flex;
     justify-content: flex-end;
     border-top: 1px solid var(--color-secondary);

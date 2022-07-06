@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@vueup/vue-quill": "^1.0.0-beta.8",
+    "axios": "^0.27.2",
     "pinia": "^2.0.14",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
@@ -27,5 +28,6 @@
     "prettier": "^2.5.1",
     "sass": "^1.53.0",
     "vite": "^2.9.12"
-  }
+  },
+  "proxy": "http://192.168.240.167:8000"
 }
