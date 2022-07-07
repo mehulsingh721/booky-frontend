@@ -32,6 +32,7 @@ export default {
         }).then((res) => {
           console.log(res)
           localStorage.setItem("auth-token", res.data.access_token)
+          localStorage.setItem("user_id", res.data.user_id)
 
           router.push({
             name: "home",
