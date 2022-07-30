@@ -15,7 +15,7 @@
       <div class="form">
         <div class="form__input">
           <label for="name">Event name *</label>
-          <input v-model="eventName" type="text" id="name">
+          <input v-model="eventName" @change="(e) => nameValue(e)" type="text" id="name">
         </div>
 
         <div class="form__input">
@@ -56,7 +56,7 @@
         </div>
         <div class="form__input">
           <label for="link">Event Link *</label>
-          <p class="link">calendly.com/username/</p>
+          <p class="link">localhost:3000/{{store.username}}</p>
           <input v-model="eventLink" type="text" id="link">
         </div>
 
@@ -128,6 +128,10 @@
 
 <script>
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import axios from "axios";
+import { useRouter } from "vue-router";
+import { store } from "../store.js"
+
 
 import {ref} from "vue";
 export default {
@@ -136,12 +140,12 @@ export default {
     next: Function
   },
   setup() {
+    const router = useRouter();
     const eventStatus = ref(true);
     const eventName = ref("");
     const meetLocation = ref("");
     const description = ref("");
     const eventLink = ref("");
-    const eventType = ref("");
     const eventColor = ref("#8247f5");
     const inviteeQuestions = ref("");
     const expand = ref(true)
@@ -151,7 +155,36 @@ export default {
     }
 
     const checkNextClick = () => {
-      expand.value = !expand.value
+      const data = {
+        name: eventName.value,
+        meetLocation: meetLocation.value,
+        description: description.value,
+        eventLink: eventLink.value,
+        type: "ONE-TO-ONE",
+        color: eventColor.value,
+      }
+      axios.post("/api/events/create", data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
+          Accept: "application/json"
+        },
+        params: {
+          userId: localStorage.getItem("user_id")
+        }
+      }).then((res) => {
+          console.log(res.data)
+          router.push({
+            name: "home",
+            query: {
+              ...router.query
+            }
+          })
+      })
+    }
+
+    const nameValue = (e) => {
+      var value = e.target.value
+      eventLink.value = value.replace(/\s+/g, '-').toLowerCase()
     }
 
     return {
@@ -161,11 +194,12 @@ export default {
       meetLocation,
       description,
       eventLink,
-      eventType,
       eventColor,
       inviteeQuestions,
       checkNextClick,
-      expand
+      expand,
+      store,
+      nameValue
     }
   }
 }
@@ -177,9 +211,6 @@ export default {
   border: 2px solid var(--color-secondary-dark);
   margin-bottom: 4rem;
   border-radius: 6px;
-  &:hover{
-    border: 1px solid var(--color-tertiary);
-  }
 }
 .row-1 {
   display: flex;

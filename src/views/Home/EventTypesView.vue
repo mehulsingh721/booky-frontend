@@ -1,13 +1,3 @@
-<script>
-import {RouterLink} from "vue-router";
-import HomeBar from "../../components/HomeBar.vue"
-export default {
-  components: {
-    HomeBar,
-  }
-}
-</script>
-
 <template>
   <HomeBar/>
   <div class="home-content">
@@ -19,37 +9,73 @@ export default {
       <div class="event-types__user">
         <div class="event-types__user--info">
           <div class="badge">
-            <p>J</p>
+            <p>{{store.fullName.charAt(0)}}</p>
           </div>
           <div>
-            <p class="name">john doe</p>
-            <a class="link" href="calendly.com/hateyoh588">calendly.com/hateyoh588</a>
+            <p class="name">{{store.fullName}}</p>
+            <a class="link" :href="'http://locahost:3000/' + store.username">localhost:3000/{{store.username}}</a>
           </div>
         </div>
 
-        <button class="btn-sec">+ New Event Type</button>
+        <RouterLink class="btn-sec" to="/event_types/new">+ New Event Type</RouterLink>
       </div>
 
       <div class="event-types__events">
-        <div class="event-types__events--card">
-          <div class="row-1">
-            <input type="checkbox">
-            <font-awesome-icon icon="fa-solid fa-gear" />
-          </div>
-          <div class="row-2">
-            <h1 class="heading-1">30 Minute Meeting</h1>
-            <p class="copy__para--medium">30 mins, One-on-One</p>
-            <a href="https://www.google.com" class="btn-tertiary" target="_blank">View booking page</a>
-          </div>
-          <div class="row-3">
-            <button class="btn-tertiary">Copy Link</button>
-            <button class="btn-sec">Share</button>
+        <div v-for="event in events" :key="event.id">
+          <div class="event-types__events--card" :style="{borderTop: `5px solid ${event.color}`}">
+            <div class="row-1">
+              <input type="checkbox">
+              <font-awesome-icon icon="fa-solid fa-gear" />
+            </div>
+            <div class="row-2">
+              <h1 class="heading-1">{{event.name}}</h1>
+              <p class="copy__para--medium">{{ event.duration }}, {{event.type}}</p>
+              <a href="https://www.google.com" class="btn-tertiary" target="_blank">View booking page</a>
+            </div>
+            <div class="row-3">
+              <button class="btn-tertiary">Copy Link</button>
+              <button class="btn-sec">Share</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { store } from "../../store.js"
+import HomeBar from "../../components/HomeBar.vue"
+import { ref, onMounted } from "vue";
+import axios from "axios";
+
+export default {
+  components: {
+    HomeBar,
+  },
+  setup(){
+    const events = ref([])
+    const getEvents = () => {
+      axios.get("/api/events", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
+          Accept: "application/json"
+        },
+        params: {
+          userId: localStorage.getItem("user_id")
+        }
+      }).then((res) => {
+        events.value = res.data
+      })
+    }
+
+    onMounted(() => {
+      getEvents()
+    })
+    return { events, getEvents, store }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .event-types {
@@ -116,7 +142,6 @@ export default {
       row-gap: 2rem;
       border-radius: 4px;
       box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .1);
-      border-top: 4px solid #8247f5;
 
       &:hover {
         top: -2px;

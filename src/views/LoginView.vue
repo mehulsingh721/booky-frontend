@@ -12,6 +12,7 @@
 import { ref } from "vue"
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { store } from "../store.js"
 
 export default {
   name: "LoginView",
@@ -31,8 +32,9 @@ export default {
           }
         }).then((res) => {
           console.log(res)
-          localStorage.setItem("auth-token", res.data.access_token)
-          localStorage.setItem("user_id", res.data.user_id)
+          localStorage.setItem("auth_token", res.data.access_token)
+          localStorage.setItem("user_id", res.data.userId)
+          store.updateData(res.data.fullName, res.data.username)
 
           router.push({
             name: "home",

@@ -1,5 +1,26 @@
-<script>
+<script setup>
+import { store } from "../store.js"
+import axios from "axios";
 import { RouterLink } from "vue-router";
+import { onMounted } from "vue";
+
+const getUserData = () => {
+  axios.get("/api/user", {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
+      Accept: "application/json"
+    },
+    params: {
+      userId: localStorage.getItem("user_id")
+    }
+  }).then((res) => {
+    store.updateData(res.data.fullName, res.data.username)
+  })
+}
+
+onMounted(() => {
+  getUserData()
+})
 </script>
 
 <template>

@@ -12,19 +12,17 @@
     </div>
   </div>
   <div class="solo-content">
-    <SoloEventSchedule />
+    <SoloEventDetails/>
   </div>
 </template>
 
 <script>
 import ToggleSwitch from "../../components/ToggleSwitch.vue";
-//import SoloEventDetails from "../../components/SoloEventDetails.vue";
-import SoloEventSchedule from "../../components/SoloEventSchedule.vue";
+import SoloEventDetails from "../../components/SoloEventDetails.vue";
 export default {
   components: {
     ToggleSwitch,
-    //SoloEventDetails,
-    SoloEventSchedule
+    SoloEventDetails,
   },
 }
 </script>
